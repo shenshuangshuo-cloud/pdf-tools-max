@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Craft — Online PDF Tools</title>
+    <meta name="description" content="Free online PDF tools — merge, split, compress, convert, edit, and sign PDFs. All processing in your browser, no upload required.">
+    <link rel="canonical" href="https://pdf-tools-max.onrender.com/">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+</head>
+<body>
+
+<!-- ========== Navbar ========== -->
+<nav class="navbar">
+    <div class="nav-inner">
+        <a class="nav-logo" href="index.html">
+            <div class="nav-logo-icon">PC</div>
+            PDF Craft
+        </a>
+        <div class="nav-right">
+            <a class="nav-link" href="index.html" data-i18n="nav_all_tools">全部工具</a>
+            <div class="lang-selector">
+                <button class="lang-btn" id="lang-btn" onclick="document.getElementById('lang-dropdown').classList.toggle('show')">
+                    <span id="current-lang">ZH</span>
+                    <span class="lang-arrow">&#9660;</span>
+                </button>
+                <div class="lang-dropdown" id="lang-dropdown">
+                    <button class="lang-option" data-lang="zh" onclick="I18N.setLang('zh');document.getElementById('lang-dropdown').classList.remove('show')">中文</button>
+                    <button class="lang-option" data-lang="en" onclick="I18N.setLang('en');document.getElementById('lang-dropdown').classList.remove('show')">English</button>
+                    <button class="lang-option" data-lang="es" onclick="I18N.setLang('es');document.getElementById('lang-dropdown').classList.remove('show')">Español</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ========== Home Page ========== -->
+<div id="home-page">
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-badge">PDF CRAFT</div>
+        <h1 data-i18n="hero_title">一站式 PDF 在线处理工具</h1>
+        <p data-i18n="hero_subtitle">合并、拆分、压缩、转换、编辑、签名——所有 PDF 操作，一个网站就够了。免费、安全、无需安装。</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-num">14</div>
+                <div class="hero-stat-label">PDF 工具</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">100%</div>
+                <div class="hero-stat-label">本地处理</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-num">3</div>
+                <div class="hero-stat-label">语言支持</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Tabs -->
+    <div class="categories" id="cat-tabs">
+        <button class="cat-tab active" data-cat="all" data-i18n="cat_all">全部</button>
+        <button class="cat-tab" data-cat="organize" data-i18n="cat_organize">整理 PDF</button>
+        <button class="cat-tab" data-cat="convert" data-i18n="cat_convert">格式转换</button>
+        <button class="cat-tab" data-cat="edit" data-i18n="cat_edit">编辑 PDF</button>
+        <button class="cat-tab" data-cat="security" data-i18n="cat_security">安全与压缩</button>
+    </div>
+
+    <!-- Tool Grid -->
+    <section class="tools-section">
+        <div class="tool-grid" id="tool-grid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="nav-logo">
+                    <div class="nav-logo-icon">PC</div>PDF Craft
+                </div>
+                <p data-i18n="footer_desc">安全、快速的在线 PDF 工具，所有文件在浏览器本地处理，不上传服务器。</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_products">产品</h4>
+                <a href="#">PDF Craft</a>
+                <a href="#">API 服务</a>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_tools">工具</h4>
+                <a href="merge-pdf.html">合并 PDF</a>
+                <a href="compress-pdf.html">压缩 PDF</a>
+                <a href="pdf-to-word.html">PDF 转 Word</a>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_company">关于</h4>
+                <a href="#">关于我们</a>
+                <a href="#">隐私政策</a>
+                <a href="#">使用条款</a>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 PDF Craft. All rights reserved.</div>
+    </footer>
+</div>
+
+<!-- ========== Toast Container ========== -->
+<div class="toast-container" id="toasts"></div>
+
+<!-- Scripts -->
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+<script>App.init();</script>
+</body>
+</html>
